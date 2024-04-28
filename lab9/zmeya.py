@@ -107,8 +107,11 @@ class Food: #Класс для еды
         self.pos = self.generate_food_position(snake)  # Обновляем позицию еды
         self.reset_timer()  # Сбрасываем таймер
     def draw(self): #Функция для отрисовки еды
-        pygame.draw.rect(screen, colorGREEN, (self.pos.x * CELL, self.pos.y * CELL, CELL, CELL)) #Отрисовка квадрата еды
-
+        a = random.randint(0,1)
+        if a:
+            pygame.draw.rect(screen, colorGREEN, (self.pos.x * CELL, self.pos.y * CELL, CELL, CELL)) #Отрисовка квадрата еды
+        else:
+            pygame.draw.rect(screen, colorRED, (self.pos.x * CELL, self.pos.y * CELL, CELL, CELL))
 FPS = 5 #Частота кадров в секунду
 clock = pygame.time.Clock() #Создание объекта Clock для управления временем
 
