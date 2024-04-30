@@ -1,10 +1,10 @@
 import psycopg2
 import csv
 
-yourpassword = 'password'  # Ensure to secure your password appropriately
+yourpassword = 'pass'  # Ensure to secure your password appropriately
 
 def insert_from_csv(file_path):
-    conn = psycopg2.connect(f"dbname=test user=postgres password={yourpassword}")
+    conn = psycopg2.connect(f"dbname=abab user=postgres password={yourpassword}")
     cur = conn.cursor()
     with open(file_path, 'r') as f:
         reader = csv.reader(f)
@@ -19,7 +19,7 @@ def insert_from_csv(file_path):
     conn.close()
 
 def insert_via_console():
-    conn = psycopg2.connect(f"dbname=test user=postgres password={yourpassword}")
+    conn = psycopg2.connect(f"dbname=abab user=postgres password={yourpassword}")
     cur = conn.cursor()
     first_name = input("Enter first name: ")
     last_name = input("Enter last name: ")
@@ -33,7 +33,7 @@ def insert_via_console():
     conn.close()
 
 def update_phonebook(first_name, new_phone):
-    conn = psycopg2.connect(f"dbname=test user=postgres password={yourpassword}")
+    conn = psycopg2.connect(f"dbname=abab user=postgres password={yourpassword}")
     cur = conn.cursor()
     cur.execute(
         "UPDATE phonebook SET phone = %s WHERE first_name = %s",
@@ -44,7 +44,7 @@ def update_phonebook(first_name, new_phone):
     conn.close()
 
 def query_phonebook(first_name):
-    conn = psycopg2.connect(f"dbname=test user=postgres password={yourpassword}")
+    conn = psycopg2.connect(f"dbname=abab user=postgres password={yourpassword}")
     cur = conn.cursor()
     cur.execute("SELECT * FROM phonebook WHERE first_name = %s", (first_name,))
     rows = cur.fetchall()
@@ -54,7 +54,7 @@ def query_phonebook(first_name):
     conn.close()
 
 def delete_from_phonebook(by, value):
-    conn = psycopg2.connect(f"dbname=test user=postgres password={yourpassword}")
+    conn = psycopg2.connect(f"dbname=abab user=postgres password={yourpassword}")
     cur = conn.cursor()
     cur.execute(f"DELETE FROM phonebook WHERE {by} = %s", (value,))
     conn.commit()
