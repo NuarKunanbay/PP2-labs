@@ -8,7 +8,7 @@ import time
 pygame.init()
 
 # Database connection
-conn = psycopg2.connect(database="abab", user="postgres", password="Master2005.", host="localhost", port="5432")
+conn = psycopg2.connect(database="abab", user="postgres", password="pass", host="localhost", port="5432")
 cur = conn.cursor()
 
 # Define User and User_Score tables
